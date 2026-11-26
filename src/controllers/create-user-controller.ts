@@ -16,9 +16,9 @@ class CreateUserController {
 
         const dados = bodySchema.parse(req.body)
 
-        await createUserService.createUser(dados)
+        const user = await createUserService.createUser(dados)
 
-        res.status(201)
+        res.status(201).json({user})
 
     }
 
