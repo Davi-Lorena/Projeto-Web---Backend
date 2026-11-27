@@ -16,9 +16,9 @@ class SessionController {
 
         const dados = bodySchema.parse(req.body)
 
-        await sessionService.createSession(dados)
+        const response = await sessionService.createSession(dados)
 
-        res.status(200)
+        res.status(200).json(response)
 
     }
 }
