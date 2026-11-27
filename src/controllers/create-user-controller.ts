@@ -9,8 +9,8 @@ class CreateUserController {
     async create(req: Request, res: Response) {
 
         const bodySchema = z.object({
-            name: z.string().min(3, {message: "O nome deve ter no mínimo 6 caracteres"}).max(40, {message: "O nome deve ter no máximo 40 caracteres"}).trim(),
-            email: z.string().email({message: "E-mail obrigadório"}).trim().toLowerCase(),
+            name: z.string().min(3, {message: "O nome deve ter no mínimo 3 caracteres"}).max(40, {message: "O nome deve ter no máximo 40 caracteres"}).trim(),
+            email: z.string().trim().email({message: "E-mail obrigadório"}).toLowerCase(),
             password: z.string().trim().min(8, {message: "A senha deve ter pelo menos 8 caracteres"})
         })
 
@@ -18,7 +18,7 @@ class CreateUserController {
 
         const user = await createUserService.createUser(dados)
 
-        res.status(201).json({user})
+        res.status(201).json()
 
     }
 

@@ -22,13 +22,13 @@ class CreateUserService {
             throw new AppError("Esse e-mail já está em uso")
         }
 
-        const HashedPassword = await hash(password, 10)
+        const hashedPassword = await hash(password, 10)
 
             await prisma.user.create({
                 data: {
                     name,
                     email,
-                    password: HashedPassword
+                    password: hashedPassword
                 }
              })
     }
