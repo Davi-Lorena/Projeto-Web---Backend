@@ -30,7 +30,7 @@ class SessionService {
 
         const {secret, expiresIn} = authConfig.jwt
 
-        const token = sign({user}, secret, {
+        const token = sign({user: user.email}, secret, {
             subject: user.id,
             expiresIn
         })
